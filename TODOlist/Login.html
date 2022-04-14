@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="login.png" type="PNG">
+</head>
+<style>
+    .container{
+        border: 2px solid black;
+        width: 280px;
+        height: 400px;
+        margin-top: 90px;
+        border-radius: 10px;
+        /* background-color: cornflowerblue; */
+        background-image: url("otp.png");
+
+        padding: 20px;
+    }
+    .input-box{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 6px 0;
+    height: 32px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    color: #fff;
+}
+
+button{
+    width: 84%;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 35px 0 10px;
+    height: 32px;
+    font-size: 12px;    
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit-btn{
+    position: relative;
+}
+.card{
+    border: 1px solid black;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+/* .submit-btn::after{
+    content: '\27a4';
+    color: #333;
+    line-height: 32px;
+    font-size: 17px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+} */
+
+.logo{
+    position: relative;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    left: -100px;
+    top: -330px; 
+}
+.head{
+    text-decoration: black;
+    text-rendering: geometricPrecision;
+}
+::placeholder{
+    text-align: center;
+}
+</style>
+<body>
+    <center>
+    <div class="container">
+        <div class="Card">
+            
+            <div class="inner-box" id="card">
+                <div class="card-front">
+                    <h2 class="head">LOGIN</h2>
+                    <form >
+                        <input type="email" class="input-box" placeholder="Your E-mail Id" required id="name1" >
+                        <input type="password" class="input-box" placeholder="Your password" required id="password" >
+                        <button type="submit" class="submit-btn" onclick="cheakLogin()">Submit</button>
+
+                    </form>
+                    <button type="button" class="btn" onclick="reg()">Not User, Register</button>
+                    <a href=" "class="a">Forgot Password </a>
+                </div>
+                <div class="logo">
+                    <img src="login.png"  alt="" style="width: 60px;">
+                </div>
+            </div>
+        </div> 
+    </div>   
+    </center>    
+</body>
+<script>
+    function reg(){
+        window.open("Registration.html");
+    }
+    
+
+let existinglist = JSON.parse(localStorage["users"]);
+    console.log(existinglist)
+
+    
+
+    function login(){
+
+    //     let existinglist = JSON.parse(localStorage["users"]);
+    // console.log(existinglist)
+    
+    
+    // for (var i = 0; i < existinglist.length; i++) {
+    //    let username=existinglist[i]('usermail');
+    //    let userpass=existinglist[i]('userpass');
+    
+    // }
+       let email=document.getElementById("name1").value;
+       console.log(email)
+       let pass=document.getElementById("password").value;
+       console.log(pass);
+
+// existinglist.map((user)=>{
+//     console.log(user.usermail+' '+user.userpass);
+
+
+for (const user of existinglist) {
+    
+    console.log(user.usermail+' '+user.userpass);
+        if(email==user.usermail && pass==user.userpass){
+            return "success";
+           
+        } 
+        
+    }
+   return "Failed...";
+}
+   let cheakLogin = () =>{
+       let cheak =login();
+       console.log(cheak);
+       if(cheak==="success"){
+           window.open('success.html')
+       }else{
+           window.alert("Invalid Credintial");
+       }
+   }
+
+   
+
+
+ 
+
+    
+</script>
+</html>

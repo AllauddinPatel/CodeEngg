@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <style>
+        .container {
+            border: 2px solid white;
+            background-image: url("task1.png");
+            width: 100%;
+            height: 690px;
+            display: flex;
+        }
+
+        .main {
+
+            display: flex;
+            width: 1320px;
+            height: 60px;
+        }
+
+        .name {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+
+        }
+
+        .btn1 {
+            /* border: 1px solid black; */
+            border-radius: 20px;
+            background-color: cornflowerblue;
+            height: 25px;
+            font-size: 17px;
+            font-style: oblique;
+            position: fixed;
+            left: 1130px;
+            top: 22px;
+
+
+        }
+
+        .btn2 {
+            /* border: 1px solid black; */
+            border-radius: 20px;
+            background-color: cornflowerblue;
+            height: 25px;
+            font-size: 17px;
+            font-style: oblique;
+            position: absolute;
+            margin-right: 5px;
+            position: fixed;
+            left: 1200px;
+            top: 22px;
+        }
+
+        .lines {
+            /* border: 2px solid black; */
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 1000px;
+            top: 200px;
+            font-size: 17px;
+        }
+        .manage{
+            /* border: 2px solid black; */
+            width: 200px;
+            height: 300px;
+            position: absolute;
+            left: 30px;
+            top: 200px;
+            font-size: 60px;
+            font-family: cursive;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="main">
+            <div class="name">Todo List</div>
+            <!-- <div class="btns"> -->
+            <button type="submit" class="btn1" onclick="Log()">Log In</button>
+            <button type="submit" class="btn2" onclick="reg()">Register</button>
+            
+            
+            
+            <!-- </div> -->
+        </div>
+        <div class="lines">
+            <h2>TASK MANAGEMENT</h2>
+            <p>Task management is an essential component of project management that helps businesses segment a project
+                into associated and sequential tasks. Each task is planned, distributed, scheduled, and monitored
+                individually. Task management software helps teams work cohesively using features such as task
+                scheduling, progress reporting, and time tracking. It helps users keep track of the time spent on each
+                task, and helps stakeholders meet their project deadlines.</p>
+        </div>
+        <div class="manage">
+            <span>Manage Your Task</span>
+        </div>
+    </div>
+</body>
+
+
+<script>
+
+function reg(){
+    window.open("Registration.html")
+}
+function Log(){
+    window.open("Login.html")
+}
+</script>
+</html>

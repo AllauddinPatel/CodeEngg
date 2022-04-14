@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<style>
+    .container{
+        position: relative;
+        border: 1px solid black;
+        width: 330px;
+        height: 420px;
+        border-radius: 10px;
+        padding: 25px;
+        top: 40px;
+        /* background-color: turquoise; */
+        background-image: url("reg1.jpg");
+
+    }
+    .input-type{
+        border-radius: 20px;
+        width: 85%;
+        border-color: white;
+        background: transparent;
+        height: 32px;
+        padding:0 10px;
+        text-align: center;
+        box-sizing: border-box;
+        margin: 8px ;
+    }
+    ::placeholder{
+        text-align: center;
+        color: rgb(31, 28, 28);
+    }
+    .button{
+        padding: 10px;
+        background: transparent;
+        border-radius: 20px;
+        width: 70%;
+        top: 30px;
+        position: relative;
+    }
+    .p{
+        position: relative;
+        top: 30px;
+
+    }
+</style>
+<body>
+    <center>
+        <div class="container">
+            <div>
+                <div>
+                    <h2>Registration</h2>
+                    <form>
+                        <input type="text" class="input-type" placeholder="Enter Your Name" required id="name" >
+                        <input type="email" class="input-type" placeholder="Enter Your E-mail" required id="email">
+                        <input type="password" class="input-type" id="pass1" placeholder="Enter PassWord" required>
+                        <input type="password" class="input-type" id="pass2" placeholder="Confirm Password" required>
+                    </form>
+                    <button type="submit" class="button" onclick="register()" >Submit</button>
+
+                    <p class="p">Already Have An Account <a href="Login.html">Log In</a></p>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+<script>
+    function register(){
+        
+    name1=document.getElementById("name").value,
+    email1=document.getElementById("email").value,
+    pass1=document.getElementById("pass1").value,
+    pass2=document.getElementById("pass2").value;
+
+
+
+    if(pass1==pass2){
+
+
+        let records = new Array();
+        records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+        records.push({
+            "usermail":email1,
+            "userpass":pass1
+        })
+
+        localStorage.setItem("users",JSON.stringify(records));
+        alert("Credential Done")
+
+    // localStorage.setItem('name',[name1]);
+    // localStorage.setItem('abc',[email1]);
+    // localStorage.setItem('abcd',[pass1]);
+    // alert("Account has been created please Log In")
+    // setTimeout(5000);
+    // window.open(login.html)
+    }else{
+        alert("Password does not match")
+    }
+    }
+</script>
+</html>

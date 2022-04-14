@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+</head>
+<script>
+    var digits = '0123456789';
+            var otpLength = 4;
+            var otp = '';
+         for(let i=1; i<=otpLength; i++)
+{
+             var index = Math.floor(Math.random()*(digits.length));
+
+            otp = otp + digits[index];
+}
+           console.log(otp);
+</script>
+<style>
+    .ab{
+            background-image: url(otp.PNG);
+            /* background-color: #f2f2f2; */
+            width: auto;
+            border: 5px solid gray;
+            margin: 20px;
+            margin-left: 35%;
+            margin-right: 35%;
+            margin-top: 12%;
+            padding: 20px;
+    }
+    
+</style>
+<body>
+    <center> 
+          
+         <form><div class="ab">
+             
+        <div>
+            <h2>Validate OTP</h2>
+        </div>
+        <div>
+            <input type="text" id="valotp" >
+        </div>
+        <br>
+        <div>
+            <input type="button" onclick="validate()" value="Validate" id="validateotp">
+        </div>
+    </div>
+    </form>
+</center>
+
+</body>
+<script>
+    function validate(){
+        let a=document.getElementById("valotp").value;
+        // let b=document.getElementById("valotp").value;
+
+        if(a==otp){
+            window.open('success.html')
+        }else{
+            window.alert("Invalid OTP")
+        }
+         
+    }
+</script>
+</html>
